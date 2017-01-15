@@ -20,6 +20,7 @@ requirements:
     - gmp # [not win]
     - gcc # [linux]
     - toolchain
+    - openblas # [linux]
   run:
     - gmp # [not win]
 
