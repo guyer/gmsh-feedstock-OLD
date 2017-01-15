@@ -18,6 +18,7 @@ requirements:
   build:
     - cmake
     - gmp # [not win]
+    - gcc # [linux]
     - toolchain
   run:
     - gmp # [not win]
