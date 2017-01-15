@@ -20,10 +20,10 @@ requirements:
     - gmp # [not win]
     - gcc # [linux]
     - toolchain
-    - openblas # [not osx]
+    - openblas # [linux]
   run:
     - gmp # [not win]
-    - openblas # [not osx]
+    - openblas # [linux]
 
 test:
   commands:
