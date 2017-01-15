@@ -23,6 +23,7 @@ requirements:
     - openblas # [linux]
   run:
     - gmp # [not win]
+    - gcc # [linux]
     - openblas # [linux]
 
 test:
