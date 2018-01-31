@@ -21,6 +21,7 @@ requirements:
     - gcc # [linux]
     - toolchain
     - openblas # [linux]
+    - fltk
   run:
     - gmp # [not win]
     - gcc # [linux]
