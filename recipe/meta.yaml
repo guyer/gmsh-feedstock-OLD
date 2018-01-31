@@ -23,7 +23,7 @@ requirements:
     - openblas # [linux]
     - fltk
     - libpng
-    - libjpeg
+    - jpeg
   run:
     - gmp # [not win]
     - gcc # [linux]
