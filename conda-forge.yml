@@ -1,13 +1,13 @@
 channels:
   sources:
-    - conda-forge
-    - guyer
-    - defaults
+  - conda-forge
+  - guyer
+  - defaults
   targets:
-    - [guyer, main]
+  - [guyer, main]
 travis:
   secure:
-    BINSTAR_TOKEN: TRsIKAlpVnC81Cet0nZrMVrL6Ddrbt+8YJebvTIRptqERTfzNtX04pxKjutO9ukUU1qM8AqFLLMi5u8SfYyzBXHWiP1bdkpqOBknafpX/r4h7ifSw9kt2MARdHy5oywwxamILgmoG83hdVAHbulVk8W0XEGMt1HDyivgy4cdWNuKDBNuGTdW3ipf0gIKa3Ttuc61xLrVBVsdBi2+nuifPsUF0GS2bC5y8PpBF464UygxgYaNGHOgLy9+18vcVFd9OFVPWev+Ex9GmyZw/6is1hqwvCoXRd2xe18LqdsadYURh2sFMSOxNPt4xKGc2BuSOhTKgg7MnCiCCnsF110Os84eXUVWjhaSwmn3Uu8Fs3hjHIuVp/vDTzH9y4i4Q3sMeb2iz7f7HIwWbd1cHf/0e1rceb+nMkZozlDsBfwpL7EcWlOBCJwH9wzmCtkA5Yztdo3QKEOpRqDuBAXP2r0SQuDrC9CL0ZPSfqFN6imp9OWpfc4rCS7mKvvxmkbKK7ChBdv7VDG0RRi5++hg7Vc/4Zbe04lrWb9zEGMLI6fsPaeluE7/JarKnGCV1zNk2bOP8dMDGfm2Ez8A0VTPDHyIJv1FBKoVLDMabJ6KBzsOiWgm4T01ypZY8gwB2UbjdgS6uDfT9YK5oGhKYRXk1smxln4gyVOSkqol9ZPit9mpmF4=
+    BINSTAR_TOKEN: JeDKM9w1rJZYAyIMfAevjGPkPXo4ARS/RQ8C6B+hpPpVnao7gQBv2Q7gD5anpg3smkN5gNcInpq9n9ShvAqItzj2oCUnTKdN0HouL6gxjtkxgnMC4K50OetYd3CP+u3QX0UxLRkw/7KcEjmfaq4ENXHMLmZZOzcQw6Tw0bCUtOSZs9abeOgf221rOLTkKlGkwY1A6gveGHmOVGIEkpoGd7ghKGRnzH1cD3JQkoIgPIMp9vhE6Z7oniRtl+nnbNr8knZjy9vBm7X89r0RUUkSjf3C2HYlHcwi/cmcU8XM7O6fw0aecaFSgrEp3idUZHKAQRAL4NP1hRhuM9aW+PXQ0gI4U4+etKUTWe4yhieGngQXJgwUiro6AZnfnJ7pYRprLTQhsFXNbOq15disyH7sMccS/GCqRZV8fwlCFALMExAGdGVerzU3Cv9qnCHLZD9jaX3tSCIg53n50l/yIwH2E9XhRmU9Z3aYy8Rh3PvgnKO/uKea6iqNsbLOB06TlY1N/BeewBs6FatQtVlnYkuJkMoJZXNG1W2UjPtZ37yPtqU1el+46nmAI5vm/3SClQGmkLh0K2zye94Q7ZB/evk/y1pIQeNKPbk3FbUhExd4UoShLIjZ6+3sfPRUgKo5sMtH6fBcpNA4RBVH7PvdtWqbxNXs5z7qoGj8OURzzwAH+EA=
 appveyor:
   secure:
-    BINSTAR_TOKEN: X89+MTZivHBAXLSEy/G8CnQu+orYtiX/vKbQ7w7Wqbhv11U+EPgW+otnBaeJ6JCY
+    BINSTAR_TOKEN: 26P3JkJ/iVPaW6c+5V5XYJ6H9Jaw/iYr0SU7KqDJCRk2+ScBP0rsvIyDOxDE9let
