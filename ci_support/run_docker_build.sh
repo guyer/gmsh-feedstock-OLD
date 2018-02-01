@@ -56,10 +56,11 @@ echo "$config" > ~/.condarc
 conda clean --lock
 
 conda install --yes --quiet conda-forge-build-setup
-source run_conda_forge_build_setup
 
 # Temporary fix to install opengl drivers
 yum install -y mesa-libGL-devel
+
+source run_conda_forge_build_setup
 
 conda build /recipe_root --quiet || exit 1
 upload_or_check_non_existence /recipe_root guyer --channel=main || exit 1
