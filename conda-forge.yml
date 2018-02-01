@@ -1,4 +1,8 @@
 channels:
+  sources:
+    - conda-forge
+    - guyer
+    - defaults
   targets:
     - [guyer, main]
 travis:
