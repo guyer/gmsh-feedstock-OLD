@@ -24,6 +24,7 @@ requirements:
     - fltk
     - libpng
     - jpeg
+    - mesalib
   run:
     - gmp # [not win]
     - gcc # [linux]
