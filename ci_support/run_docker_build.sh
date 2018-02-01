@@ -58,7 +58,7 @@ conda clean --lock
 conda install --yes --quiet conda-forge-build-setup
 source run_conda_forge_build_setup
 
-Temporary fix to install opengl drivers
+# Temporary fix to install opengl drivers
 yum install -y mesa-libGL-devel
 
 conda build /recipe_root --quiet || exit 1
