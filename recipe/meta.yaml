@@ -30,6 +30,7 @@ requirements:
     - gmp # [not win]
     - gcc # [linux]
     - openblas # [linux]
+    - opencascade
     - libpng
     - jpeg
 
