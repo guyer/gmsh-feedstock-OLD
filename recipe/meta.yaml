@@ -21,10 +21,11 @@ requirements:
     - gcc # [linux]
     - toolchain
     - openblas # [linux]
+    - opencascade
     - fltk
     - libpng
     - jpeg
-    - mesalib
+    - mesalib # [linux]
   run:
     - gmp # [not win]
     - gcc # [linux]
