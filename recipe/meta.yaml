@@ -26,7 +26,7 @@ requirements:
     - libpng
     - jpeg
     - mesalib # [linux]
-    - mkl # [win]
+    - mkl-devel # [win]
   run:
     - gmp # [not win]
     - gcc # [linux]
