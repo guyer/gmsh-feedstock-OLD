@@ -26,10 +26,12 @@ requirements:
     - libpng
     - jpeg
     - mesalib # [linux]
+    - mkl # [win]
   run:
     - gmp # [not win]
     - gcc # [linux]
     - openblas # [linux]
+    - mkl # [win]
     - opencascade
     - libpng
     - jpeg
