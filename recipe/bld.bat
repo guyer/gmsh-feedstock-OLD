@@ -3,6 +3,7 @@ cd build
 
 :: Configure.
 cmake -D ENABLE_HXT=0 ^
+      -D BLAS_LAPACK_LIBRARIES=%PREFIX%\Library\lib ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 
