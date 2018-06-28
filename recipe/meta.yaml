@@ -20,7 +20,7 @@ requirements:
     - gmp # [not win]
     - gcc # [linux]
     - toolchain
-    - openblas # [linux or win]
+    - openblas # [linux]
     - opencascade
     - fltk
     - libpng
