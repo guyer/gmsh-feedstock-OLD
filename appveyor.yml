@@ -50,6 +50,8 @@ install:
     - cmd: conda.exe install -n root --quiet --yes conda-forge-build-setup
     - cmd: run_conda_forge_build_setup
 
+    - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 # Skip .NET project specific build phase.
 build: off
 
