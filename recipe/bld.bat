@@ -4,7 +4,7 @@ cd build
 :: Configure.
 cmake -G "NMake Makefiles" ^
       -D CMAKE_INSTALL_PREFIX=%PREFIX% ^
-      -D BLAS_LAPACK_LIBRARIES=%PREFIX%\Library\lib ^
+      -D ENABLE_HXT=0 ^
       -D ENABLE_OS_SPECIFIC_INSTALL=OFF ^
       -D ENABLE_MATCH=OFF ^
       -D ENABLE_PETSC=OFF ^
