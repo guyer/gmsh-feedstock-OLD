@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index cefd21c72..d6ecfe9fe 100644
+index cefd21c72..4c8084ce4 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -318,11 +318,11 @@ if(ENABLE_BLAS_LAPACK)
@@ -18,3 +18,12 @@ index cefd21c72..d6ecfe9fe 100644
        endif(HAVE_64BIT_SIZE_T)
        find_all_libraries(LAPACK_LIBRARIES MKL_LIBS_REQUIRED "" ${MKL_PATH})
        if(LAPACK_LIBRARIES)
+@@ -488,7 +488,7 @@ if(ENABLE_FLTK)
+       message(STATUS "Using fltk-config script for Fltk " ${FLTK_VERSION})
+       execute_process(COMMAND ${FLTK_CONFIG_SCRIPT} --use-gl --use-images --includedir
+                       OUTPUT_VARIABLE FLTK_INCLUDE_DIR)
+-      string(STRIP ${FLTK_INCLUDE_DIR} FLTK_INCLUDE_DIR)
++      string(STRIP "${FLTK_INCLUDE_DIR}" FLTK_INCLUDE_DIR)
+       list(APPEND EXTERNAL_INCLUDES ${FLTK_INCLUDE_DIR})
+       # On linux (at least OpenSuSE) the following directories are
+       # not existing (everything is in /usr/include). To avoid warnings
