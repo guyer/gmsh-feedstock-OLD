@@ -2,27 +2,23 @@ mkdir build
 cd build
 
 :: Configure.
-cmake -D CMAKE_INSTALL_PREFIX=%PREFIX% ^
-      -D ENABLE_OS_SPECIFIC_INSTALL=ON ^
+cmake -G "NMake Makefiles" ^
+      -D CMAKE_INSTALL_PREFIX=%PREFIX% ^
+      -D ENABLE_OS_SPECIFIC_INSTALL=OFF ^
       -D ENABLE_MATCH=OFF ^
       -D ENABLE_PETSC=OFF ^
       -D ENABLE_SLEPC=OFF ^
-      -D MSVC=OFF ^
-      -D CMAKE_C_COMPILER=/MinGW/bin/mingw32-gcc.exe ^
-      -D CMAKE_CXX_COMPILER=/MinGW/bin/mingw32-g++.exe ^
-      -D CMAKE_Fortran_COMPILER=/msys64/mingw32/bin/gfortran.exe ^
-      -D CMAKE_RC_COMPILER=/msys64/mingw32/bin/windres.exe ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 
 :: Build.
-make package
+nmake package
 if errorlevel 1 exit 1
 
 :: Test.
-ctest -D Experimental --output-on-failure
+ctest
 if errorlevel 1 exit 1
 
 :: Install.
-make install
+nmake install
 if errorlevel 1 exit 1
