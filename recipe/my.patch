@@ -1,17 +1,20 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index cefd21c72..ffd5f84cd 100644
+index cefd21c72..d6ecfe9fe 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -319,10 +319,10 @@ if(ENABLE_BLAS_LAPACK)
+@@ -318,11 +318,11 @@ if(ENABLE_BLAS_LAPACK)
+       # blas/lapack libs (useful for users with no Fortran compiler and no MKL
        # license, who can just download our precompiled "gmsh-dep" package)
        if(HAVE_64BIT_SIZE_T)
-         set(MKL_PATH em64t/lib)
+-        set(MKL_PATH em64t/lib)
 -        set(MKL_LIBS_REQUIRED libguide40 mkl_intel_lp64 mkl_intel_thread mkl_core)
-+        set(MKL_LIBS_REQUIRED mkl_intel_lp64 mkl_intel_thread mkl_core)
++        set(MKL_PATH Library/lib)
++        set(MKL_LIBS_REQUIRED mkl_intel_lp64_dll mkl_intel_thread_dll mkl_core_dll)
        else(HAVE_64BIT_SIZE_T)
-         set(MKL_PATH ia32/lib)
+-        set(MKL_PATH ia32/lib)
 -        set(MKL_LIBS_REQUIRED libguide40 mkl_intel_c mkl_intel_thread mkl_core)
-+        set(MKL_LIBS_REQUIRED mkl_intel_c mkl_intel_thread mkl_core)
++        set(MKL_PATH Library/lib)
++        set(MKL_LIBS_REQUIRED mkl_intel_c_dll mkl_intel_thread_dll mkl_core_dll)
        endif(HAVE_64BIT_SIZE_T)
        find_all_libraries(LAPACK_LIBRARIES MKL_LIBS_REQUIRED "" ${MKL_PATH})
        if(LAPACK_LIBRARIES)
