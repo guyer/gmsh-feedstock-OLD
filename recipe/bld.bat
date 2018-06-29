@@ -7,8 +7,9 @@ cmake -D CMAKE_INSTALL_PREFIX=%PREFIX% ^
       -D ENABLE_MATCH=OFF ^
       -D ENABLE_PETSC=OFF ^
       -D ENABLE_SLEPC=OFF ^
-      -D CMAKE_C_COMPILER=/msys64/mingw32/bin/gcc.exe ^
-      -D CMAKE_CXX_COMPILER=/msys64/mingw32/bin/g++.exe ^
+      -D MSVC=OFF ^
+      -D CMAKE_C_COMPILER=/MinGW/bin/mingw32-gcc.exe ^
+      -D CMAKE_CXX_COMPILER=/MinGW/bin/mingw32-g++.exe ^
       -D CMAKE_Fortran_COMPILER=/msys64/mingw32/bin/gfortran.exe ^
       -D CMAKE_RC_COMPILER=/msys64/mingw32/bin/windres.exe ^
       %SRC_DIR%
