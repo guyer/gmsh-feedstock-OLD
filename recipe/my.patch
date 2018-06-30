@@ -28,7 +28,7 @@ index 106903715..5aa161319 100644
        add_subdirectory(Fltk)
        set_config_option(HAVE_FLTK "Fltk")
 diff --git a/Geo/GModel.cpp b/Geo/GModel.cpp
-index 297271c8e..665920527 100644
+index 297271c8e..a5e406fe5 100644
 --- a/Geo/GModel.cpp
 +++ b/Geo/GModel.cpp
 @@ -595,7 +595,7 @@ bool GModel::getBoundaryTags(const std::vector<std::pair<int, int> > &inDimTags,
@@ -48,6 +48,15 @@ index 297271c8e..665920527 100644
 +      for(std::set<int,AbsIntLessThan>::iterator it = c[dim].begin(); it != c[dim].end(); it++)
          outDimTags.push_back(std::pair<int, int>(dim, *it));
      }
+   }
+@@ -823,7 +823,7 @@ static void addToMap
+    std::map< MElement *, std::vector < std::pair <MElement *, bool> > > &elToNeighbors,
+    const MFace &face,  MElement *el)
+ {
+-  std::map< MFace , MElement *, Less_Face>::iterator fit = faceToElement.find(face);
++  std::multimap< MFace , MElement *, Less_Face>::iterator fit = faceToElement.find(face);
+   if (fit == faceToElement.end()){
+     faceToElement.insert(std::pair< MFace , MElement *>(face, el));
    }
 @@ -2364,7 +2364,7 @@ void GModel::alignPeriodicBoundaries()
  
