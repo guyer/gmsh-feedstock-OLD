@@ -27,3 +27,16 @@ index cefd21c72..0b8604195 100644
      if(FLTK_VERSION GREATER 1.1)
        add_subdirectory(Fltk)
        set_config_option(HAVE_FLTK "Fltk")
+diff --git a/Geo/discreteDiskFace.h b/Geo/discreteDiskFace.h
+index 274877fe2..d3c804eb7 100644
+--- a/Geo/discreteDiskFace.h
++++ b/Geo/discreteDiskFace.h
+@@ -132,7 +132,7 @@ class triangulation {
+     }
+ 
+     std::map<MVertex*,std::vector<MVertex*> > firstNode2Edge;
+-    for (std::set<MEdge>::iterator ie = borderEdg.begin(); ie != borderEdg.end() ; ++ie) {
++    for (std::set<MEdge,Less_Edge>::iterator ie = borderEdg.begin(); ie != borderEdg.end() ; ++ie) {
+       MEdge ed = *ie;
+       const std::vector<int> &nT = ed2tri[ed];
+       MElement* t = tri[nT[0]];
