@@ -175,3 +175,16 @@ index 12e5f2c74..2c384b721 100644
  
    vec1 = SVector3(b->x() - a->x(), b->y() - a->y(), b->z() - a->z());
    vec2 = SVector3(c->x() - a->x(), c->y() - a->y(), c->z() - a->z());
+diff --git a/contrib/HighOrderMeshOptimizer/OptHomMesh.cpp b/contrib/HighOrderMeshOptimizer/OptHomMesh.cpp
+index a818794bb..b5662b7dd 100644
+--- a/contrib/HighOrderMeshOptimizer/OptHomMesh.cpp
++++ b/contrib/HighOrderMeshOptimizer/OptHomMesh.cpp
+@@ -58,7 +58,7 @@ Mesh::Mesh(const std::map<MElement*,GEntity*> &element2entity,
+   _indPCEl.resize(nElements);
+   int iEl = 0;
+   bool nonGeoMove = false;
+-  for(std::set<MElement*>::const_iterator it = els.begin();
++  for(std::set<MElement*, Less_ElementPtr>::const_iterator it = els.begin();
+       it != els.end(); ++it, ++iEl) {
+     _el[iEl] = *it;
+     const JacobianBasis *jac = _el[iEl]->getJacobianFuncSpace();
