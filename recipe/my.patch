@@ -119,6 +119,19 @@ index 84dacff7a..332583b58 100644
      stringstream ss;
      ss << "cf_iter_" << setfill('0') << setw ((int)(ceil(temp))) << iIter << ".pos";
      exportCrossField(ss.str().c_str());
+diff --git a/Mesh/HighOrder.cpp b/Mesh/HighOrder.cpp
+index 27eb6c59b..ace1414f3 100644
+--- a/Mesh/HighOrder.cpp
++++ b/Mesh/HighOrder.cpp
+@@ -1444,7 +1444,7 @@ static void updatePeriodicEdgesAndFaces(GModel *m)
+           //vtcs.push_back(v2v[vtx]);
+         }
+ 
+-        std::map<MFace,MElement*>::iterator srcIter = srcFaces.find(MFace(vtcs));
++        std::map<MFace,MElement*,Less_face>::iterator srcIter = srcFaces.find(MFace(vtcs));
+         if (srcIter == srcFaces.end()) {
+           std::ostringstream faceDef;
+           for (int iVtx=0;iVtx<nbVtcs;iVtx++) faceDef << vtcs[iVtx]->getNum() << " ";
 diff --git a/Mesh/meshGFaceBDS.cpp b/Mesh/meshGFaceBDS.cpp
 index deb176118..d74d89f08 100644
 --- a/Mesh/meshGFaceBDS.cpp
