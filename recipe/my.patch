@@ -120,7 +120,7 @@ index 84dacff7a..332583b58 100644
      ss << "cf_iter_" << setfill('0') << setw ((int)(ceil(temp))) << iIter << ".pos";
      exportCrossField(ss.str().c_str());
 diff --git a/Mesh/HighOrder.cpp b/Mesh/HighOrder.cpp
-index 27eb6c59b..ace1414f3 100644
+index 27eb6c59b..42888dc72 100644
 --- a/Mesh/HighOrder.cpp
 +++ b/Mesh/HighOrder.cpp
 @@ -1444,7 +1444,7 @@ static void updatePeriodicEdgesAndFaces(GModel *m)
@@ -128,7 +128,7 @@ index 27eb6c59b..ace1414f3 100644
          }
  
 -        std::map<MFace,MElement*>::iterator srcIter = srcFaces.find(MFace(vtcs));
-+        std::map<MFace,MElement*,Less_face>::iterator srcIter = srcFaces.find(MFace(vtcs));
++        std::map<MFace,MElement*,Less_Face>::iterator srcIter = srcFaces.find(MFace(vtcs));
          if (srcIter == srcFaces.end()) {
            std::ostringstream faceDef;
            for (int iVtx=0;iVtx<nbVtcs;iVtx++) faceDef << vtcs[iVtx]->getNum() << " ";
@@ -162,3 +162,16 @@ index 97eb1da16..7d88f1f22 100644
  
  static inline void computeCoeffLengthVectors_(const fullMatrix<double> &mat,
                                                fullMatrix<double> &coeff,
+diff --git a/Mesh/yamakawa.cpp b/Mesh/yamakawa.cpp
+index 12e5f2c74..2c384b721 100644
+--- a/Mesh/yamakawa.cpp
++++ b/Mesh/yamakawa.cpp
+@@ -2924,7 +2924,7 @@ double Supplementary::scaled_jacobian(MVertex* a, MVertex* b, MVertex* c, MVerte
+   double val;
+   double l1, l2, l3, l4;
+   SVector3 vec1, vec2, vec3, vec4;
+-  static double coeff = 2 / std::sqrt(3);
++  static double coeff = 2 / std::sqrt(3.);
+ 
+   vec1 = SVector3(b->x() - a->x(), b->y() - a->y(), b->z() - a->z());
+   vec2 = SVector3(c->x() - a->x(), c->y() - a->y(), c->z() - a->z());
