@@ -175,6 +175,19 @@ index 12e5f2c74..2c384b721 100644
  
    vec1 = SVector3(b->x() - a->x(), b->y() - a->y(), b->z() - a->z());
    vec2 = SVector3(c->x() - a->x(), c->y() - a->y(), c->z() - a->z());
+diff --git a/contrib/HighOrderMeshOptimizer/CADDistances.cpp b/contrib/HighOrderMeshOptimizer/CADDistances.cpp
+index 1969f5793..5c28f5250 100644
+--- a/contrib/HighOrderMeshOptimizer/CADDistances.cpp
++++ b/contrib/HighOrderMeshOptimizer/CADDistances.cpp
+@@ -370,7 +370,7 @@ double discreteDistance(MLine *l, GEdge *ed, double tol, int meshDiscr, int geom
+     const int nV = l->getNumVertices();
+     for (int i=0; i<nV; ++i) xyz.push_back(l->getVertex(i)->point());
+     parametricLineNodalBasis l2(basis, xyz);
+-    int minDepth = std::ceil(std::log(nV)/std::log(2));
++    int minDepth = std::ceil(std::log((float)nV)/std::log(2.));
+     l2.discretize(dpts2, ts2, tol, minDepth, 10*minDepth);
+   }
+   oversample(dpts2, tol);
 diff --git a/contrib/HighOrderMeshOptimizer/OptHomMesh.cpp b/contrib/HighOrderMeshOptimizer/OptHomMesh.cpp
 index a818794bb..b5662b7dd 100644
 --- a/contrib/HighOrderMeshOptimizer/OptHomMesh.cpp
@@ -188,3 +201,29 @@ index a818794bb..b5662b7dd 100644
        it != els.end(); ++it, ++iEl) {
      _el[iEl] = *it;
      const JacobianBasis *jac = _el[iEl]->getJacobianFuncSpace();
+diff --git a/contrib/MeshOptimizer/MeshOptPatch.cpp b/contrib/MeshOptimizer/MeshOptPatch.cpp
+index 47d6df65c..ab2de3b7c 100644
+--- a/contrib/MeshOptimizer/MeshOptPatch.cpp
++++ b/contrib/MeshOptimizer/MeshOptPatch.cpp
+@@ -107,7 +107,7 @@ Patch::Patch(const std::map<MElement*, GEntity*> &element2entity,
+     _bndEl2FV.resize(nBndElts);
+     int iBndEl = 0;
+     bool unknownVert = false;
+-    for(std::set<MElement*>::iterator it = bndEls.begin();
++    for(std::set<MElement*>::const_iterator it = bndEls.begin();
+         it != bndEls.end(); ++it, ++iBndEl) {
+       MElement* bndEl = *it;
+       _bndEl[iBndEl] = bndEl;
+diff --git a/contrib/MeshOptimizer/MeshOptimizer.cpp b/contrib/MeshOptimizer/MeshOptimizer.cpp
+index 98b118299..0d45ffc96 100644
+--- a/contrib/MeshOptimizer/MeshOptimizer.cpp
++++ b/contrib/MeshOptimizer/MeshOptimizer.cpp
+@@ -353,7 +353,7 @@ std::vector<elSetVertSetPair> getDisjointPatches(const vertElVecMap &vertex2elem
+ void getAdjacentBndElts(const elElMap &el2BndEl, const elEntMap &bndEl2Ent,
+                         const elSet &elts, elSet &bndElts, MeshOptParameters &par)
+ {
+-  for (elSetIter itEl=elts.begin(); itEl!=elts.end(); itEl++) {
++  for (elSet::const_iterator itEl=elts.begin(); itEl!=elts.end(); itEl++) {
+     elElMap::const_iterator itBndEl = el2BndEl.find(*itEl);
+     if (itBndEl != el2BndEl.end()) {
+       MElement* bndEl = itBndEl->second;
