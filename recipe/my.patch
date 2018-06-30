@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index cefd21c72..0b8604195 100644
+index 106903715..5aa161319 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -318,11 +318,11 @@ if(ENABLE_BLAS_LAPACK)
+@@ -332,11 +332,11 @@ if(ENABLE_BLAS_LAPACK)
        # blas/lapack libs (useful for users with no Fortran compiler and no MKL
        # license, who can just download our precompiled "gmsh-dep" package)
        if(HAVE_64BIT_SIZE_T)
@@ -18,7 +18,7 @@ index cefd21c72..0b8604195 100644
        endif(HAVE_64BIT_SIZE_T)
        find_all_libraries(LAPACK_LIBRARIES MKL_LIBS_REQUIRED "" ${MKL_PATH})
        if(LAPACK_LIBRARIES)
-@@ -481,7 +481,7 @@ if(ENABLE_FLTK)
+@@ -491,7 +491,7 @@ if(ENABLE_FLTK)
    if(FLTK_CONFIG_SCRIPT)
      execute_process(COMMAND ${FLTK_CONFIG_SCRIPT} --api-version
                      OUTPUT_VARIABLE FLTK_VERSION)
@@ -28,7 +28,7 @@ index cefd21c72..0b8604195 100644
        add_subdirectory(Fltk)
        set_config_option(HAVE_FLTK "Fltk")
 diff --git a/Geo/discreteDiskFace.h b/Geo/discreteDiskFace.h
-index 274877fe2..d3c804eb7 100644
+index 676745680..19680d01f 100644
 --- a/Geo/discreteDiskFace.h
 +++ b/Geo/discreteDiskFace.h
 @@ -132,7 +132,7 @@ class triangulation {
@@ -40,3 +40,16 @@ index 274877fe2..d3c804eb7 100644
        MEdge ed = *ie;
        const std::vector<int> &nT = ed2tri[ed];
        MElement* t = tri[nT[0]];
+diff --git a/Geo/discreteFace.cpp b/Geo/discreteFace.cpp
+index dc8225617..cbc34b57b 100644
+--- a/Geo/discreteFace.cpp
++++ b/Geo/discreteFace.cpp
+@@ -665,7 +665,7 @@ void discreteFace::updateTopology(std::vector<triangulation*>&partition)
+       std::map<MVertex*,MLine*> v02edg;//first vertex of the MLine
+       std::set<MVertex*> first, last;
+       const std::set<MEdge,Less_Edge> &bii = partition[ii]->borderEdg;// edges defining the border(s) of the ii-th new triangulation
+-      for(std::set<MEdge,Less_Edge>::iterator ie = bordi.begin(); ie != bordi.end(); ++ie){// MEdge by MEdge of the i-th triangulation border(s)
++      for(std::set<MEdge,Less_Edge>::const_iterator ie = bordi.begin(); ie != bordi.end(); ++ie){// MEdge by MEdge of the i-th triangulation border(s)
+ 	if(bii.find(*ie)!=bii.end()){// if the border edge is common to both triangulations, then it is a future GEdge - composed of MLine's
+ 	  v02edg[ie->getVertex(0)] = new MLine(ie->getVertex(0),ie->getVertex(1));// a new MLine is created
+ 
