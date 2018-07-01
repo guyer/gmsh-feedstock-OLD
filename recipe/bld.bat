@@ -20,5 +20,5 @@ if errorlevel 1 exit 1
 :: if errorlevel 1 exit 1
 
 :: Install.
-nmake install
-if errorlevel 1 exit 1
+:: nmake install
+:: if errorlevel 1 exit 1
